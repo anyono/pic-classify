@@ -19,15 +19,15 @@ import sys
 from sklearn.metrics import f1_score, average_precision_score
 
 class Config:
-    DATA_DIR = "//content//drive//MyDrive//Colab Notebooks//pic_lable//temp//sample_resized"
-    CSV_PATH = "//content//drive//MyDrive//Colab Notebooks//pic_lable//temp//image_tags_matrix.csv"
+    DATA_DIR = "DIR_TO_IMAGE"
+    CSV_PATH = "DIR_OF_LABEL"
     IMG_SIZE = 512
     BATCH_SIZE = 8
     NUM_EPOCHS = 60
     NUM_CLASSES = 962
     LR = 0.001
     DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    SAVE_DIR = "//content//drive//MyDrive//Colab Notebooks//pic_lable//temp//saved_models"
+    SAVE_DIR = "DIR_TO_SAVE_MODEL_AND_CHECKPOINT"
 
     # 解冻参数
     FREEZE_EPOCHS = 10
@@ -532,4 +532,5 @@ if __name__ == "__main__":
         json.dump(label_list, f)
     
     print(f"模型配置已保存至: {config_path}")
+
     print(f"标签列表已保存至: {label_path}")
