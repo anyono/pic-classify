@@ -24,7 +24,7 @@ class Config:
     IMG_SIZE = 512
     BATCH_SIZE = 8
     NUM_EPOCHS = 60
-    NUM_CLASSES = 962
+    NUM_CLASSES = -1 # 手动输入数据集的标签数
     LR = 0.001
     DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     SAVE_DIR = "DIR_TO_SAVE_MODEL_AND_CHECKPOINT"
@@ -534,3 +534,4 @@ if __name__ == "__main__":
     print(f"模型配置已保存至: {config_path}")
 
     print(f"标签列表已保存至: {label_path}")
+
