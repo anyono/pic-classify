@@ -28,3 +28,17 @@ pandas 2.2.2
 sklearn 1.6.1
 
 skmultilearn 0.2.0
+
+# train
+Change Config class for your code.
+
+DATA_DIR: filepath of dataset
+
+CSV_PATH: filepath of label csv file
+
+NUM_CLASSES: count of labels for your dataset
+
+SAVE_DIR: where to save yor models and checkpoints
+
+# test
+Test on a custom dataset for 6000+ imgs and 900 label, trained 10~ hours.
