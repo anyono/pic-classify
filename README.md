@@ -1,21 +1,27 @@
 # pic-classify
 Use pretrained resnet-152 for transfer learning on multilabel classification task.
 
+## Data Format  
+### Image Directory Structure 
 
-# data format
+your_img_folder/\
+├── img_0001.jpg\
+├── img_0002.jpg\
+└── ...
 
-- Your_Image_Folder/
-- - img_0001.jpg
-- - img_0002.jpg
 
-example of label.csv:
+### Label CSV File  
+`labels.csv` must contain:  
+- A `filename` column matching image names  
+- Binary columns (`0` or `1`) for each label  
 
-filename,label_1,label_2,label_3,...,label_100\
-img_00001.jpg,1,0,0,...,1\
-img_00002.jpg,0,1,0,...,0\
-...
+Example:  
+| filename      | label_1 | label_2 | ... | label_100 |  
+|---------------|---------|---------|-----|-----------|  
+| img_00001.jpg | 1       | 0       | ... | 1         |  
+| img_00002.jpg | 0       | 1       | ... | 0         |  
 
-# environments
+# Environments
 
 Python 3.11.13
 
@@ -31,8 +37,8 @@ skmultilearn 0.2.0
 
 flask 3.1.1
 
-# train
-Change Config class for your code.
+# Train
+Modify `Config` class in `main.py` with your parameters.
 
 DATA_DIR: filepath of dataset
 
@@ -42,13 +48,29 @@ NUM_CLASSES: count of labels for your dataset
 
 SAVE_DIR: where to save yor models and checkpoints
 
-# test
-Test on a custom dataset for 6000+ imgs and 900 label, trained 10~ hours.
+### run training:
+```
+python main.py
+```
 
-# use your model
+# Web Interface
 
-A simple webUI based on flask is in "\reason" , change path in config.py and put your "model_name.pth", "label_list.json" and "model_config.json" to "\reason\model"
+A simple local WebUI based on flask is provided in `/reason`.
 
-run app.py
+Change path in config.py and put your `model_name.pth`, `label_list.json` and `model_config.json` to `/reason/model`.
 
-default on http://localhost:5000
+Then update paths in `/reason/config.py`
+
+Run  `app.py` :
+```
+python app.py
+```
+
+WebUI default at http://localhost:5000
+
+
+# Results
+Test on:
+- 6000+ imgs 
+- 900 labels
+- Training time: 10~ hours (on GPU)
