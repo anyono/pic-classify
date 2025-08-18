@@ -29,6 +29,8 @@ sklearn 1.6.1
 
 skmultilearn 0.2.0
 
+flask 3.1.1
+
 # train
 Change Config class for your code.
 
@@ -42,3 +44,11 @@ SAVE_DIR: where to save yor models and checkpoints
 
 # test
 Test on a custom dataset for 6000+ imgs and 900 label, trained 10~ hours.
+
+# use your model
+
+A simple webUI based on flask is in "\reason" , change path in config.py and put your "model_name.pth", "label_list.json" and "model_config.json" to "\reason\model"
+
+run app.py
+
+default on http://localhost:5000
